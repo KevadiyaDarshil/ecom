@@ -37,7 +37,7 @@ exports.createpage = async (req, res) => {
     try {
         const data = req.body
         data.image = req.file.filename
-        data.password = await bcrypt.hash(data.password, 10) 
+        data.password = await bcrypt.hash(data.password, 10)
         const createdata = await UM.create(data)
         res.status(200).json({
             status: 'success',
@@ -106,16 +106,14 @@ async function main(email) {
     const info = await transporter.sendMail({
         from: 'kevadiyadarshil13@gmail.com', // sender address
         to: email, // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
+        subject: "Final check ✔", // Subject line
+        text: "Hello CDMI", // plain text body
         html: "<b>Hello world?</b>", // html body
     });
 
     console.log("Message sent: %s", info.messageId);
     // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
 }
-
-main().catch(console.error);
 
 exports.loginUser = async (req, res) => {
     try {
