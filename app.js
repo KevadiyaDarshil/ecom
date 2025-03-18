@@ -10,8 +10,8 @@ var usersRouter = require('./routes/users');
 var productRouter = require('./routes/product')
 
 
-mongoos.connect('mongodb://localhost:27017/ecom')
-// mongoos.connect('mongodb+srv://kevadiyadarshil13:inYq1p9V1wQlEzvB@mycluster.i6cpq.mongodb.net/MongooseCRUD?retryWrites=true&w=majority&appName=myCluster')
+// mongoos.connect('mongodb://localhost:27017/ecom')
+mongoos.connect('mongodb+srv://kevadiyadarshil13:inYq1p9V1wQlEzvB@mycluster.i6cpq.mongodb.net/MongooseCRUD?retryWrites=true&w=majority&appName=myCluster')
   .then(() => {
 
     console.log("conected");
