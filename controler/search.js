@@ -8,7 +8,7 @@ exports.catsearch = async (req, res) => {
         console.log(data);
 
 
-        var prod = await PM.find({ category_id: data })
+        var prod = await PM.find({ cat_name: data })
 
 
         res.status(200).json({
