@@ -3,6 +3,7 @@ var router = express.Router()
 var PC = require('../controler/prodcantrol')
 var auth = require('../middlware/Auth')
 var multer = require('multer')
+var SC = require("../controllers/search")
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
