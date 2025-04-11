@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var VC = require('../controllers/viewOrder')
+var VC = require('../controler/viewOrder')
 
 /* GET home page. */
 router.post('/', VC.createViewOrder);
