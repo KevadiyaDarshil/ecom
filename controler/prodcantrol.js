@@ -87,7 +87,7 @@ exports.updateprod = async (req, res) => {
 
         // // Add the image URL from Cloudinary to your data object
         data.image = uploadResult.secure_url;
-        }
+        
         console.log("file ==> ", file);
 
 
