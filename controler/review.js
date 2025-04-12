@@ -20,7 +20,7 @@ exports.createReview = async (req, res) => {
 
 exports.getAllReviews = async (req, res) => {
     try {
-        const reviews = await RM.find().populate('user').populate('viewOrder');
+        const reviews = await RM.find().populate(['user', 'viewOrder']);
         res.status(200).json(reviews);
     } catch (error) {
         res.status(400).json({ error: error.message });
