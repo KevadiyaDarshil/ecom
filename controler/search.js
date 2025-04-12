@@ -15,7 +15,7 @@ exports.catsearch = async (req, res) => {
 
             status: 'success',
             message: 'prod found',
-            artical: prod
+            data: prod
         })
     } catch (error) {
         res.status(200).json({
