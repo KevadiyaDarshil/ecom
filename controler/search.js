@@ -29,22 +29,25 @@ exports.catsearch = async (req, res) => {
 
 exports.search = async (req, res) => {
 
-    const  query  = req.body;  // Destructure query, page, and limit from request body
-    console.log(query);
+   const { query, page = 1, limit = 10 } = req.body;  // Destructure query, page, and limit from request body
 
     if (!query) {
         return res.status(400).json({ error: 'Search query is required' });
-    }
+    } 
+    
 
     try {
         // Perform a full-text search with MongoDB's $text operator
-        const prod = await PM.find({
+        const articles = await AM.find({
             $text: { $search: query }, // Full-text search using MongoDB
         })
+            .skip((page - 1) * limit)  // Pagination: Skip records based on page number
+            .limit(Number(limit))  // Limit the number of records per page
+            .sort({ publishedAt: -1 });  // Sort by publishedAt in descending order (most recent articles first)
 
-        if (prod.length == 0) throw new Error("no any product");
+        if (articles.length == 0) throw new Error("no any news");
 
-        res.status(200).json({ data: prod });
+        res.status(200).json({ data: articles });
     } catch (err) {
         res.status(500).json({ error: 'Failed to search news by keyword', message: err.message });
     }
