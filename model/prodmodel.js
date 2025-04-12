@@ -17,5 +17,5 @@ var prodSchema = new mongoose.Schema({
    offer: Number,
     price: Number
 })
-prodSchema.index({ prodname: 'text', description: 'text' });
+prodSchema.index({ title: 'text', description: 'text' });
 module.exports = mongoose.model('product', prodSchema)
