@@ -29,7 +29,7 @@ exports.catsearch = async (req, res) => {
 
 exports.search = async (req, res) => {
 
-   const { query, page = 1, limit = 10 } = req.body;  // Destructure query, page, and limit from request body
+   const { query } = req.body;  // Destructure query, page, and limit from request body
 
     if (!query) {
         return res.status(400).json({ error: 'Search query is required' });
