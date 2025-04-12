@@ -41,9 +41,7 @@ exports.search = async (req, res) => {
         const articles = await AM.find({
             $text: { $search: query }, // Full-text search using MongoDB
         })
-            .skip((page - 1) * limit)  // Pagination: Skip records based on page number
-            .limit(Number(limit))  // Limit the number of records per page
-            .sort({ publishedAt: -1 });  // Sort by publishedAt in descending order (most recent articles first)
+            // Sort by publishedAt in descending order (most recent articles first)
 
         if (articles.length == 0) throw new Error("no any news");
 
