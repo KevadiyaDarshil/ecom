@@ -29,7 +29,7 @@ exports.catsearch = async (req, res) => {
 
 exports.search = async (req, res) => {
 
-    const { query } = req.body;  // Destructure query, page, and limit from request body
+    const  query  = req.body;  // Destructure query, page, and limit from request body
     console.log(query);
 
     if (!query) {
