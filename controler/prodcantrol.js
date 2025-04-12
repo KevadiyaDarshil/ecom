@@ -76,17 +76,17 @@ exports.updateprod = async (req, res) => {
         var data = req.body
 
         const file = req.file;
-        console.log(file);
+        // console.log("file ==> ", file);
 
-        if (file != undefined) {
-            const uploadResult = await cloudinary.uploader.upload(file.path, {
-                folder: 'news/',  // Specify the folder name where the image will be stored
-                public_id: file.filename,  // Optionally, use the original filename or customize it
-                resource_type: 'image'  // Make sure to specify it's an image
-            });
+        // // Upload the image to Cloudinary, save it under a new folder (e.g., "articles/")
+        const uploadResult = await cloudinary.uploader.upload(file.path, {
+            folder: 'news/',  // Specify the folder name where the image will be stored
+            public_id: file.filename,  // Optionally, use the original filename or customize it
+            resource_type: 'image'  // Make sure to specify it's an image
+        });
 
-            // // Add the image URL from Cloudinary to your data object
-            data.image = uploadResult.secure_url;
+        // // Add the image URL from Cloudinary to your data object
+        data.image = uploadResult.secure_url;
         }
         console.log("file ==> ", file);
 
